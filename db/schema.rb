@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323163729) do
+ActiveRecord::Schema.define(version: 20150323165204) do
 
   create_table "galleries", force: :cascade do |t|
     t.integer  "paysite_id"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150323163729) do
 
   add_index "galleries", ["owner_id"], name: "index_galleries_on_owner_id"
   add_index "galleries", ["paysite_id"], name: "index_galleries_on_paysite_id"
+  add_index "galleries", ["url", "owner_id"], name: "index_galleries_on_url_and_owner_id", unique: true
 
   create_table "paysites", force: :cascade do |t|
     t.string   "title"

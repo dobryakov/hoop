@@ -25,13 +25,16 @@ class ImportController < ApplicationController
           url   = d[0]
           descr = d[1]
 
-          g = Gallery.create(
-            :url          => url,
-            :description  => descr,
-            :paysite      => paysite,
-            :content_type => content_type,
-            :owner        => current_user
-          )
+          begin
+            g = Gallery.create(
+              :url          => url,
+              :description  => descr,
+              :paysite      => paysite,
+              :content_type => content_type,
+              :owner        => current_user
+            )
+          rescue ActiveRecord::RecordNotUnique => e
+          end
 
           created_galleries.push(g)
 
@@ -41,7 +44,7 @@ class ImportController < ApplicationController
 
     }
 
-    render :html => created_galleries.to_json
+    redirect_to action: "new", sponsor_id: params[:sponsor][:id] #, flash: { galleries_count: created_galleries.count }
 
   end
 
