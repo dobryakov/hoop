@@ -24,18 +24,20 @@ class ImportController < ApplicationController
 
           d = l.strip.split("|")
 
-          url   = d[0]
-          descr = d[1]
+          url   = d[0].to_s.strip
+          descr = d[1].to_s.strip
 
-          begin
-            g = Gallery.create(
-              :url          => url,
-              :description  => descr,
-              :paysite      => paysite,
-              :content_type => content_type,
-              :owner        => current_user
-            )
-          rescue ActiveRecord::RecordNotUnique => e
+          if url
+            begin
+              g = Gallery.create(
+                :url          => url,
+                :description  => descr,
+                :paysite      => paysite,
+                :content_type => content_type,
+                :owner        => current_user
+              )
+            rescue ActiveRecord::RecordNotUnique => e
+            end
           end
 
           created_galleries.push(g)
