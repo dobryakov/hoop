@@ -1,0 +1,23 @@
+<h1>Import for <%= @sponsor.title %></h1>
+
+<%= form_tag("/import", method: "post") do %>
+
+    <%= hidden_field_tag('sponsor[id]', @sponsor.id) %>
+
+    <table class="import_table">
+      <tr>
+        <td>Paysite title</td>
+        <td>Pics</td>
+        <td>Movies</td>
+      </tr>
+      <% @sponsor.paysites.each do |paysite| %>
+      <tr>
+        <td><%= paysite.title %></td>
+        <td><textarea name="galleries[<%=paysite.id%>][pics]"></textarea></td>
+        <td><textarea name="galleries[<%=paysite.id%>][movies]"></textarea></td>
+      </tr>
+      <% end %>
+    </table>
+
+    <input type="submit" class="import_submit">
+<% end %>
