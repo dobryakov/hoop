@@ -54,6 +54,8 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  root 'sponsors#index'
+
   resources :sponsors
   resources :paysites
 
