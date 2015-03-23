@@ -6,7 +6,9 @@ class ImportController < ApplicationController
 
   def create
 
-    galleries = import_params[:galleries]
+    galleries = params[:galleries]
+
+    created_galleries = []
 
     galleries.each{ |paysite_id, raw_data|
 
@@ -21,9 +23,20 @@ class ImportController < ApplicationController
         url   = d[0]
         descr = d[1]
 
+        g = Gallery.create(
+          :url          => url,
+          :description  => descr,
+          :paysite      => paysite,
+          :owner        => current_user
+        )
+
+        created_galleries.push(g)
+
       }
 
     }
+
+    render :html => created_galleries.to_json
 
   end
 

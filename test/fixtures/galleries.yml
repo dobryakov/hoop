@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paysite_id: 
+  user_id: 
+  url: MyText
+  description: MyText
+
+two:
+  paysite_id: 
+  user_id: 
+  url: MyText
+  description: MyText
