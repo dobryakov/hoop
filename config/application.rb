@@ -23,7 +23,7 @@ module Hoop
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.web_console.whitelisted_ips = '91.151.204.101'
+    config.web_console.whitelisted_ips = '91.151.204.101' if Rails.env.development?
 
   end
 end
