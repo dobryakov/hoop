@@ -5,7 +5,15 @@ class ExportController < ApplicationController
     @user = User.find(params[:user_id])
 
     if params[:filter]
-      @galleries = @user.galleries.where(:paysite => params[:filter][:paysite_id])
+
+      filter = {}
+
+      %w(paysite_id content_type).each{ |content_type|
+        filter[content_type] = params[:filter][content_type] if params[:filter][content_type]
+      }
+
+      @galleries = @user.galleries.where(filter)
+
     else
       @galleries = @user.galleries
     end
