@@ -57,4 +57,6 @@ Rails.application.routes.draw do
   get  'import/:sponsor_id' => 'import#new'
   post 'import'             => 'import#create'
 
+  get  'export/:user_id'    => 'export#index'
+
 end
