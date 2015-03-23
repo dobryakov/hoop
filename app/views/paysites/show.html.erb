@@ -7,8 +7,13 @@
 
 <p>
   <strong>Sponsor:</strong>
-  <%= @paysite.sponsor_id %>
+  <%= @paysite.sponsor.title %>
 </p>
 
 <%= link_to 'Edit', edit_paysite_path(@paysite) %> |
-<%= link_to 'Back', paysites_path %>
+<%= link_to 'Back', paysites_path %> |
+<%= link_to 'Import', '/import/' + @paysite.id.to_s %> |
+Export
+<a href="/export/<%= current_user.id %>.rss?filter[<%=@paysite.id%>]=1&filter[content_type]=pics">pics</a>,
+<a href="/export/<%= current_user.id %>.rss?filter[<%=@paysite.id%>]=1&filter[content_type]=movies">movies</a>
+

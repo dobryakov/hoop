@@ -3,4 +3,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', @paysite %> |
-<%= link_to 'Back', paysites_path %>
+<%= link_to 'Back', paysites_path %> |
+<%= link_to 'Import', '/import/' + @paysite.id.to_s %>

@@ -12,7 +12,7 @@ class ExportController < ApplicationController
         filter[content_type] = params[:filter][content_type] if params[:filter][content_type]
       }
 
-      @galleries = @user.galleries.where(filter)
+      @galleries = @user.galleries.where(filter).order('id Desc').limit(1000)
 
     else
       @galleries = @user.galleries
