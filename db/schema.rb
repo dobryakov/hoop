@@ -11,19 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323161702) do
+ActiveRecord::Schema.define(version: 20150323163729) do
 
   create_table "galleries", force: :cascade do |t|
     t.integer  "paysite_id"
-    t.integer  "user_id"
+    t.integer  "owner_id"
     t.text     "url"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "content_type"
   end
 
+  add_index "galleries", ["owner_id"], name: "index_galleries_on_owner_id"
   add_index "galleries", ["paysite_id"], name: "index_galleries_on_paysite_id"
-  add_index "galleries", ["user_id"], name: "index_galleries_on_user_id"
 
   create_table "paysites", force: :cascade do |t|
     t.string   "title"

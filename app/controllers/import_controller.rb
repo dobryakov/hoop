@@ -14,23 +14,28 @@ class ImportController < ApplicationController
 
       paysite = Paysite.find(paysite_id)
 
-      content = raw_data[:pics]
+      [:pics, :movies].each{ |content_type|
 
-      content.each_line{ |l|
+        content = raw_data[content_type]
 
-        d = l.strip.split("|")
+        content.each_line{ |l|
 
-        url   = d[0]
-        descr = d[1]
+          d = l.strip.split("|")
 
-        g = Gallery.create(
-          :url          => url,
-          :description  => descr,
-          :paysite      => paysite,
-          :owner        => current_user
-        )
+          url   = d[0]
+          descr = d[1]
 
-        created_galleries.push(g)
+          g = Gallery.create(
+            :url          => url,
+            :description  => descr,
+            :paysite      => paysite,
+            :content_type => content_type,
+            :owner        => current_user
+          )
+
+          created_galleries.push(g)
+
+        }
 
       }
 
