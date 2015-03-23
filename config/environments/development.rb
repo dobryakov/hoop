@@ -42,4 +42,7 @@ Rails.application.configure do
 
   BetterErrors::Middleware.allow_ip! '91.151.204.101'
 
+  ENV['ADMIN_HTTP_LOGIN']    = "admin"
+  ENV['ADMIN_HTTP_PASSWORD'] = "12345"
+
 end

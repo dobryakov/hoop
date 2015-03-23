@@ -1,4 +1,7 @@
 class SponsorsController < ApplicationController
+
+  http_basic_authenticate_with :name => ENV['ADMIN_HTTP_LOGIN'], :password => ENV['ADMIN_HTTP_PASSWORD'] if Rails.env.production? || Rails.env.development?
+
   before_action :set_sponsor, only: [:show, :edit, :update, :destroy]
 
   # GET /sponsors

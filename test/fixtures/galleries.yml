@@ -2,12 +2,12 @@
 
 one:
   paysite_id: 
-  user_id: 
+  owner_id:
   url: MyText
   description: MyText
 
 two:
   paysite_id: 
-  user_id: 
+  owner_id:
   url: MyText
   description: MyText

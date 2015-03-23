@@ -1,5 +1,7 @@
 class ImportController < ApplicationController
 
+  http_basic_authenticate_with :name => ENV['ADMIN_HTTP_LOGIN'], :password => ENV['ADMIN_HTTP_PASSWORD'] if Rails.env.production? || Rails.env.development?
+
   def new
     @sponsor = Sponsor.find(params[:sponsor_id])
   end
