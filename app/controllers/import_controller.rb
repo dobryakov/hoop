@@ -44,7 +44,7 @@ class ImportController < ApplicationController
 
     }
 
-    redirect_to action: "new", sponsor_id: params[:sponsor][:id] #, flash: { galleries_count: created_galleries.count }
+    redirect_to action: "new", sponsor_id: params[:sponsor][:id], notice: "Successfully imported #{created_galleries.count} galleries"
 
   end
 

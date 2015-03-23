@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sponsor.title %>
+</p>
+
+<%= link_to 'Edit', edit_sponsor_path(@sponsor) %> |
+<%= link_to 'Back', sponsors_path %>
+
+<ul>
+<% @sponsor.paysites.each do |paysite| %>
+    <li><%= link_to paysite.title, edit_paysite_path(paysite) %></li>
+<% end %>
+</ul>

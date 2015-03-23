@@ -54,6 +54,9 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  resources :sponsors
+  resources :paysites
+
   get  'import/:sponsor_id' => 'import#new'
   post 'import'             => 'import#create'
 

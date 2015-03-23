@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @paysite.title %>
+</p>
+
+<p>
+  <strong>Sponsor:</strong>
+  <%= @paysite.sponsor_id %>
+</p>
+
+<%= link_to 'Edit', edit_paysite_path(@paysite) %> |
+<%= link_to 'Back', paysites_path %>

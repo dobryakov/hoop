@@ -1,0 +1,27 @@
+<%= form_for(@paysite) do |f| %>
+  <% if @paysite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paysite.errors.count, "error") %> prohibited this paysite from being saved:</h2>
+
+      <ul>
+      <% @paysite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :sponsor_id %><br>
+    <%= collection_select :paysite, :sponsor_id, Sponsor.all, :id, :title %>
+  </div>
+  <br/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<br/>
