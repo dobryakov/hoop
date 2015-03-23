@@ -7,7 +7,7 @@
 
 <p>
   <strong>Sponsor:</strong>
-  <%= @paysite.sponsor.title %>
+  <%= @paysite.sponsor.title if @paysite.sponsor %>
 </p>
 
 <%= link_to 'Edit', edit_paysite_path(@paysite) %> |
