@@ -1,0 +1,21 @@
+rvm:
+- 2.2
+
+script:
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rake
+
+notifications:
+  hipchat: 3bf913639d5695d46817576a7f94dd@1345551
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: JR3iY8pwZJYhrz7QTzYnLehg3+C7G/wNlXTeA09BGkhvMA79enVUIm0B449w+AEqcBXwxT8tONhcUiA06MqjC2oK4KakjFwB8BIbaf9BOyTfyzBuBJ62NoJwj4SqMFEqy9b3cOsEZPJDNG0pNryIh5YDLz09/3JhNR2/+Uqlev4=
+  app: 'thawing-basin-3751'
+  on:
+    repo: dobryakov/hoop
+    branch: master
+  run:
+    - "rake db:migrate"
