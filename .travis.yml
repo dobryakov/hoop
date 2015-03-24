@@ -7,11 +7,13 @@ script:
 - bundle exec rake
 
 notifications:
-  hipchat: {{HIPCHAT_TOKEN}}@1345551
+  hipchat:
+    secure: "gQ81ms0fsOtvGrfIpGZUozRPNs12yyNEDK0q7a58609XJJxwHQAUlrjN5fzmmQow+gNS+jX7JFAu4X2gw/6i5AlPlrK+xD3iTP5UYKl3/9bG5gcRCBcBW9IyfgW0nxNuJ4aoNYaSOnE4qhmyiKM2XESHmKwfZ8oxOhh6N4Czk6E="
 
 addons:
   code_climate:
-    repo_token: {{CODECLIMATE_TOKEN}}
+    repo_token:
+      secure: "jNpUMrfakaLpLIkpxakyrPzwmYYef9AQPweQTtifTDx63nghBeQMFwHZRsbroZIirpkhAga6P4wFInuys+pZpm7Rr7zFMvtAg3azBsTn91s8nxkSDZyAliE2sA202wBDwS2j/u1y3EVTRrMzmCamN0kxuD8OOwVUgkU6nYhwRDg="
 
 deploy:
   provider: heroku
