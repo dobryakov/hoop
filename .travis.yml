@@ -11,7 +11,7 @@ notifications:
 
 addons:
   code_climate:
-    repo_token: b74d2192d833b3f6d48b1568826823a29ed3c731d0d75656422a80ba68c57548
+    repo_token: <%= ENV['CODECLIMATE_TOKEN'] %>
 
 deploy:
   provider: heroku
