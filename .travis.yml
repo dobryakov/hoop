@@ -7,11 +7,11 @@ script:
 - bundle exec rake
 
 notifications:
-  hipchat: <%= ENV['HIPCHAT_TOKEN'] %>@1345551
+  hipchat: {{HIPCHAT_TOKEN}}@1345551
 
 addons:
   code_climate:
-    repo_token: <%= ENV['CODECLIMATE_TOKEN'] %>
+    repo_token: {{CODECLIMATE_TOKEN}}
 
 deploy:
   provider: heroku
