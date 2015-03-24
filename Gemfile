@@ -48,6 +48,10 @@ group :development do
   gem "better_errors"
 end
 
+group :test do
+  gem "codeclimate-test-reporter"
+end
+
 group :production do
   gem 'pg'
   gem 'rails_12factor'

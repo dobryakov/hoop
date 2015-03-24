@@ -9,6 +9,10 @@ script:
 notifications:
   hipchat: 3bf913639d5695d46817576a7f94dd@1345551
 
+addons:
+  code_climate:
+    repo_token: b74d2192d833b3f6d48b1568826823a29ed3c731d0d75656422a80ba68c57548
+
 deploy:
   provider: heroku
   api_key:
