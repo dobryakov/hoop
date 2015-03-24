@@ -7,7 +7,7 @@
     <tr>
       <th>Title</th>
       <th>Sponsor</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
@@ -19,6 +19,11 @@
         <td><%= link_to 'Show', paysite %></td>
         <td><%= link_to 'Edit', edit_paysite_path(paysite) %></td>
         <td><%= link_to 'Destroy', paysite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          Export
+          <a href="/export/<%= current_user.id %>.rss?filter[paysite_id]=<%=paysite.id%>&filter[content_type]=pics">pics</a>,
+          <a href="/export/<%= current_user.id %>.rss?filter[paysite_id]=<%=paysite.id%>&filter[content_type]=movies">movies</a>
+        </td>
       </tr>
     <% end %>
   </tbody>
