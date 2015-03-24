@@ -24,3 +24,4 @@ deploy:
   run:
     - "rake db:migrate"
   strategy: git
+
