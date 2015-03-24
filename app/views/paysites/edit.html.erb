@@ -4,7 +4,7 @@
 
 <%= link_to 'Show', @paysite %> |
 <%= link_to 'Back', paysites_path %> |
-<%= link_to 'Import', '/import/' + @paysite.sponsor.id.to_s %>
+<%= link_to 'Import', '/import/' + @paysite.sponsor.id.to_s if @paysite.sponsor %>
 
 Export
 <a href="/export/<%= current_user.id %>.rss?filter[paysite_id]=<%=@paysite.id%>&filter[content_type]=pics">pics</a>,
