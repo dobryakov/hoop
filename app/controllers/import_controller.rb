@@ -40,7 +40,7 @@ class ImportController < ApplicationController
             end
           end
 
-          created_galleries.push(g)
+          created_galleries.push(g) if defined? g
 
         }
 
