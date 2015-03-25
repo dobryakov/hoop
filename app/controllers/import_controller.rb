@@ -27,7 +27,7 @@ class ImportController < ApplicationController
           url   = d[0].to_s.strip
           descr = d[1].to_s.strip
 
-          if url
+          if url.length > 0
             begin
               g = Gallery.create(
                 :url          => url,
